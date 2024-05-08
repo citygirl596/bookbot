@@ -1,3 +1,5 @@
+# TODO finish final report, need to output it so that the letter appearing most is at the top etc etc
+
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 
@@ -30,14 +32,14 @@ def count_letters(string_of_text):
     # print(final_dict)
     return final_dict
 
+
+
 def final_report(words_counted, stats_dictionary):
     print("--- Begin report of books/frankenstein.txt ---")
     print(f"{words_counted} words found in the document\n")
     print("Unsorted dictionary")
     print(stats_dictionary)
-    print("Sorted dictionary")
-    sorted_dict = dict(sorted(stats_dictionary.items()))
-    print(sorted_dict)
+
     print("--- End report ---")
 
 main()
