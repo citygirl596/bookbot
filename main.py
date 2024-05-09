@@ -7,7 +7,8 @@ def main():
     file_content = read_bookfile()
     word_count = (count_words(file_content))
     response_dictionary = count_letters(file_content)
-    final_report(word_count, response_dictionary)
+    sorted_list = sort_the_dictionary(response_dictionary)
+    final_report(word_count, sorted_list)
 
 def read_bookfile():
     with open("books/frankenstein.txt") as bookfile:
@@ -33,13 +34,23 @@ def count_letters(string_of_text):
     return final_dict
 
 
+def sort_the_dictionary(unsorted_dict):
+    tmp = []
+    for key, value in unsorted_dict.items():
+        tmptuple = (value, key)
+        tmp.append(tmptuple)
+    # Sort the list in ascending order
+    tmp = sorted(tmp, reverse=True)
+    # print("This is the sorted list")
+    # print(tmp)
+    return tmp
 
-def final_report(words_counted, stats_dictionary):
+
+def final_report(words_counted, stats_list):
     print("--- Begin report of books/frankenstein.txt ---")
     print(f"{words_counted} words found in the document\n")
-    print("Unsorted dictionary")
-    print(stats_dictionary)
-
+    for entry in stats_list:
+        print(f"The {entry[1]} character was found {entry[0]} times")
     print("--- End report ---")
 
 main()
